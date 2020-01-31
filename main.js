@@ -8,7 +8,6 @@ var app = new Vue({
 		showEditModal: false,
 		showDeleteModal: false,
 		staff : [],
-		deleteStaff
 		newStaff: { title: "", username: "", forename: "", surname: "", email: "", type: "", password: "", lng_only: ""},
 		currentStaff: {}
 	},
@@ -55,7 +54,7 @@ var app = new Vue({
 			  }
 			}).then(function(response){
 			        //handle success
-			        app.newStaff =  newStaff: { title: "", username: "", forename: "", surname: "", email: "", type: "", password: "", lng_only: ""};
+			        app.newStaff =  { title: "", username: "", forename: "", surname: "", email: "", type: "", password: "", lng_only: ""};
 			        app.successMsg = response.data.Message;	
 					app.getAllUsers();
 			        console.log(response);
@@ -89,6 +88,7 @@ var app = new Vue({
 						console.log("error");
 					}
 					else {
+						 app.newStaff =  { title: "", username: "", forename: "", surname: "", email: "", type: "", password: "", lng_only: ""};
 						app.successMsg = response.data.Message;
 						console.log("success");		
 						app.getAllUsers();
@@ -107,14 +107,13 @@ var app = new Vue({
 		deleteStaff(){
 			// var formData = app.toFormData(app.newStaff);
 
-			axios.get('http://localhost/vuejs/process_Data.php?request=remove', {
+			axios.get('http://localhost/tomorrowtest3/homedir/public_html/Staff/process_data.php?request=remove', {
 			  params: {
 				"username": this.currentStaff.username,
-				
 			  }
 			}).then(function(response){
 					
-				    app.currentStaff =  newStaff: { title: "", username: "", forename: "", surname: "", email: "", type: "", password: "", lng_only: ""}
+				   	app.currentStaff =  { title: "", username: "", forename: "", surname: "", email: "", type: "", password: "", lng_only: ""};
 					if(response.data.error){
 						app.errorMsg = response.data.Message;
 						console.log("error");

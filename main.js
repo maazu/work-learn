@@ -107,7 +107,7 @@ var app = new Vue({
 		deleteStaff(){
 			// var formData = app.toFormData(app.newStaff);
 
-			axios.get('http://localhost/tomorrowtest3/homedir/public_html/Staff/process_data.php?request=remove', {
+			axios.get('', {
 			  params: {
 				"username": this.currentStaff.username,
 			  }

@@ -1,14 +1,9 @@
 <?php
-$prefix = "../../../";
-$useJQueryUI = true;
-?>
-
-<?php
 
   function Get_Current_Field_Data($Country_Name){
       $data_from_Database  = array();//associative array
-      global $dbh2;
-      $sql = "SELECT Field.ID,Field.Field,Field.Alias,Field.Country,prodhistoryfieldregion4.* FROM prodhistoryfieldregion4,field where prodhistoryfieldregion4.FieldID = field.ID AND Field.Country = :Country";
+      global $dbh2;  
+      $sql = "QUEYR";
       $stmt = $dbh2->prepare($sql);
       $stmt->bindValue(":Country", $Country_Name);
       $stmt->execute();
@@ -18,8 +13,7 @@ $useJQueryUI = true;
       }
       $data = json_encode($data_from_Database); 
       return $data ;
-      //SELECT Field.ID,Field.Field,Field.Alias,Field.Country,prodhistoryfieldregion4.* FROM prodhistoryfieldregion4,field where prodhistoryfieldregion4.FieldID = field.ID AND Field.Country = 'brazil' AND Year = 1980
-}
+     }
 	
   $data_from_Database = json_decode(Get_Current_Field_Data("Norway"),true);
 ?>
@@ -140,14 +134,3 @@ $useJQueryUI = true;
   }
 
 ?>
-
-
-<?php 
- /*
-    ---Relevant Query 
-    SELECT Field.ID,Field.Field,Field.Country,prodhistoryfieldregion4.* FROM prodhistoryfieldregion4,field where prodhistoryfieldregion4.FieldID = field.ID AND Field.Country = 'Norway';
-    */
-   
-   // Generate random Ip address
-
- ?>

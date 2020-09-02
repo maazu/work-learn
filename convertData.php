@@ -2,7 +2,7 @@
 
   function Get_Current_Field_Data($Country_Name){
       $data_from_Database  = array();//associative array
-      global $dbh2;  
+      global $daabsae;  
       $sql = "QUEYR";
       $stmt = $dbh2->prepare($sql);
       $stmt->bindValue(":Country", $Country_Name);
